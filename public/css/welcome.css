@@ -284,6 +284,7 @@ video {
 }
 
 
+
 @media (min-width:640px) {
     .sm\:rounded-lg {
         border-radius: .5rem
