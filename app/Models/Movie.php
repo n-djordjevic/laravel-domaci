@@ -10,6 +10,10 @@ class Movie extends Model
 {
     use HasFactory;
 
+    protected $fillable = [
+        'title', 'director', 'movie_list_id'
+    ];
+    public $timestamps = false;
     public function movieList()
     {
         return $this->belongsTo(MovieList::class);
