@@ -24,6 +24,7 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 // movie api
 Route::get('/movie', [MovieApiController::class, 'getAll']);
+Route::get('/movie/{movie_list_id}', [MovieApiController::class, 'getMovieFromList']);
 Route::post('/movie', [MovieApiController::class, 'insert']);
 Route::put('/movie/{movie}', [MovieApiController::class, 'update']);
 Route::delete('/movie/{movie}', [MovieApiController::class, 'destroy']);
