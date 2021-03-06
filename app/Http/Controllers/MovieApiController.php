@@ -24,7 +24,7 @@ class MovieApiController extends Controller
                     $output .= '<tr>' .
                         '<td>' . $movie->title . '</td>' .
                         '<td>' . $movie->director . '</td>' .
-                        "<td><a id=" . $movie->id . " class='btn btn-outline-dark' href='#' role='button'>Edit</a> <a id=" . $movie->id . " class='btn btn-dark' href='#' role='button'>Delete</a></td>" .
+                        "<td><a id=" . $movie->id . " class='btn btn-outline-dark' data-bs-toggle='modal' data-bs-target='#editMovie' href='#' role='button' onclick='getUpdateID(this)'>Edit</a> <a id=" . $movie->id . " class='btn btn-dark' href='#' role='button' onclick='destroy(this)'>Delete</a></td>" .
                         '</tr>';
                 }
             }
@@ -32,6 +32,11 @@ class MovieApiController extends Controller
         }
     }
 
+    public function getMovie($movie)
+    {
+        $movie = Movie::where('id', $movie)->get();
+        return $movie;
+    }
 
     public function insert()
     {
